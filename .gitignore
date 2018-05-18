@@ -1,3 +1,4 @@
+
 # Ignore everything
 *
 
@@ -10,7 +11,10 @@
 !.bash_profile
 !.Xresources
 
-# etc...
+
+#!./.config/i3/
+
+
 
 # ...even if they are in subdirectories
 #!*/
