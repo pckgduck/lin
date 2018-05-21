@@ -1,0 +1,143 @@
+set $mod Mod4
+# font pango:xos4 Terminus 10
+font pango:xos4 Inconsolata 10
+floating_modifier $mod
+# bindsym $mod+b workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Shift+Tab move container to workspace back_and_forth
+# bindsym $mod+Shift+q kill
+# bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run -fn 'xos4 Terminus-8'
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+p exec "bash ~/bin/monitors"
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+m bar mode toggle
+bindsym $mod+x [urgent=latest] focus
+bindsym $mod+semicolon focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+# bindsym $mod+d focus child
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+mode "resize" {
+  bindsym j resize shrink width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym semicolon resize grow width 10 px or 10 ppt
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+# hide_edge_borders none|vertical|horizontal|both|smart
+hide_edge_borders smart
+set $WS1 1
+set $WS2 2
+set $WS3 3
+set $WS4 4
+set $WS5 5
+set $WS7 7
+set $WS8 8
+set $WS9 9
+set $WS0 0
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS0
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS0
+
+bindsym $mod+grave exec urxvt
+bindsym $mod+Return exec "bash ~/bin/base/termApp mc"
+bindsym $mod+Shift+grave exec "bash ~/bin/test" 
+bindsym $mod+F1 exec emacs
+bindsym $mod+Shift+F1 exec subl3
+bindsym $mod+F2 exec klavaro
+# bindsym $mod+F3 exec opera
+bindsym $mod+F4 kill
+bindsym $mod+F5 exec chromium
+# bindsym $mod+F5 exec firefox
+# bindsym $mod+Shift+F5 [class="Firefox"] move workspace current
+bindsym $mod+F6 exec "bash ~/bin/vlc"
+bindsym $mod+F7 exec libreoffice
+bindsym $mod+F8 exec "bash ~/bin/photoshop.sh"
+# bindsym $mod+F9 exec subl3
+bindsym $mod+F12 exec "bash ~/bin/cmus"
+bindsym $mod+Shift+F12 exec "bash ~/bin/cmus del"
+#bindsym $mod+F12 exec "bash ~/bin/base/shutdown"
+
+bindsym XF86Forward exec "bash ~/bin/cmus next"
+bindsym XF86Back exec "bash ~/bin/cmus prev"
+bindsym Cancel exec "bash ~/bin/cmus pause"
+# bindsym XF86Search exec "firefox --private"
+bindsym XF86Mail exec "bash ~/bin/base/shutdown"
+
+bar {
+  separator_symbol " | "
+  status_command i3status
+  # font pango:DejaVu Sans Mono, Icons 8
+  # position top
+  mode hide
+  colors {
+            background          #151515
+            statusline          #D7D0C7
+            focused_workspace   #334A5D     #334A5D     #D7D0C7
+            inactive_workspace  #222222     #222222     #888888
+            urgent_workspace    #2f343a     #ffff00     #000000
+            #colorclass         <border>    <background> <text>
+          }
+        }
+# assign [class="^URxvt$"] 9
+assign [class="Chromium"] 3
+assign [class="Firefox"] 3
+assign [class="TelegramDesktop"] 7
+assign [instance="transmission-qt"] 9
+exec_always ~/scripts/cmus
+
+
+exec "bash ~/bin/cmus"
+exec chromium
+exec telegram-desktop
+exec transmission-qt
+

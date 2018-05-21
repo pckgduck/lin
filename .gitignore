@@ -1,6 +1,6 @@
 
 # Ignore everything
-*
+/*
 
 # But not these files...
 
@@ -12,7 +12,9 @@
 !.Xresources
 
 
-#!./.config/i3/
+!.config/
+.config/*
+!.config/i3
 
 
 
