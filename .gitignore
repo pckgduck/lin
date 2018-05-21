@@ -17,7 +17,17 @@
 !.config/i3
 !.config/mc
 !.config/cmus
+
+
+
+
+
 !.config/transmission
+.config/transmission/torrents
+
+
+
+
 !.config/vlc
 
 
