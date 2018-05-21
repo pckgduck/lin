@@ -1,0 +1,26 @@
+#!bin/sh
+
+echo "####### Deleting empty folders"
+
+sh ~/bin/base/delEmtyFold $HOME
+
+echo "####### Backuping files ....."
+backup=/inf/media/f
+backupLinuxConf=/inf/media/f/linuxConf
+
+if [ -a "$backup" ]; then
+  rm -r $backup
+fi
+
+mkdir $backup
+mkdir $backupLinuxConf
+
+cp -r $HOME/f/* $backup
+
+cp -r $HOME/{.xinitrc,.Xresources,.i3status.conf,.bash_profile,.bashrc} $backupLinuxConf
+cp -r $HOME/bin/ $backupLinuxConf
+
+cp -r $HOME/emacs__config/ $backupLinuxConf
+cp -r $HOME/.config/ $backupLinuxConf
+
+echo "####### COMPLETE for $SECONDS s"

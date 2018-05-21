@@ -1,0 +1,7 @@
+#!bin/bash
+
+cmus-remote -s
+
+amixer sset 'Master' 100%
+
+sh -c "vlc"

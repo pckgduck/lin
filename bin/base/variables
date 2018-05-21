@@ -1,0 +1,7 @@
+#!bin/sh
+
+argument=$1
+
+cd "$argument"
+
+du -a -d 1 -h | sort -h

@@ -1,0 +1,8 @@
+#!bin/sh
+
+find $1 -iname "*.mp3" -type f -exec /bin/mv {} $1 \;
+
+sh ~/bin/base/delEmtyFold $1
+
+cmus-remote -l $1
+cmus-remote -C "update-cache"

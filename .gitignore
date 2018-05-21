@@ -16,7 +16,7 @@
 .config/*
 !.config/i3
 
-
+!bin
 
 # ...even if they are in subdirectories
 #!*/

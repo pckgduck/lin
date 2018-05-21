@@ -1,0 +1,3 @@
+#!/bin/sh
+
+sh ~/bin/base/termApp vim

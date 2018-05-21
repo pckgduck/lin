@@ -1,0 +1,36 @@
+#!/bin/sh
+
+amixer sset 'Master' 100%
+
+if [ -z $1 ]; then
+    sh ~/bin/base/termApp cmus &
+
+    cmus-remote -q /inf/s0/m
+
+    sleep 5
+
+    cmus-remote -p
+fi
+
+case $1 in
+
+    next)
+	cmus-remote -n
+	;;
+
+    prev)
+	cmus-remote -r
+	;;
+
+    pause)
+	cmus-remote -u
+	;;
+
+    del)
+	curSong=$(cmus-remote -Q | grep file | cut -c 6- )
+	rm "$curSong"
+	cmus-remote -C "update-cache"
+	cmus-remote -n
+	;;
+
+esac

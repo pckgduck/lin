@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if xrandr | grep -q "DVI-I-1 connected"; then
+	if xrandr --listactivemonitors| grep -q "Monitors: 2"; then
+		D# xrandr --output VGA-1 --off		
+		xrandr --output DVI-I-1 --off
+	else 
+		# xrandr --output VGA-1 --auto --right-of DVI-I-1
+		# xrandr --output VGA-1 --auto --left-of DVI-I-1
+		xrandr --output DVI-I-1 --auto --left-of VGA-1
+	fi
+fi
