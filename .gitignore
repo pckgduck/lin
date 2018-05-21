@@ -10,11 +10,18 @@
 !.bashrc
 !.bash_profile
 !.Xresources
-
+!.i3status.conf
 
 !.config/
 .config/*
 !.config/i3
+!.config/mc
+!.config/cmus
+!.config/transmission
+!.config/vlc
+
+
+
 
 !bin
 !emacs__config/**
