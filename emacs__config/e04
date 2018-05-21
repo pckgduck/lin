@@ -1,0 +1,47 @@
+
+   
+** Projectile
+   https://github.com/bbatsov/projectile
+
+   | Combo     | Function                   | Description                |
+   |-----------+----------------------------+----------------------------|
+   | C-c p f   | projectile-find-file       | Shows project files        |
+   | C-c p g   | projectile-grep            | Runs grep on project files |
+   | C-c p r   | projectile-replace         | Interactive query replace  |
+   | C-c p R   | projectile-regenerate-tags | Regenerates tags           |
+   | C-c p C-h |                            | Help                       |
+
+** Tags
+   (global-set-key (kbd "<f3>") 'visit-tags-table)
+   
+   | Combo | Function         | Description                |
+   |-------+------------------+----------------------------|
+   | <f3>  | visit-tags-table | Loads tags                 |
+   | M-.   | find-tag         | Jumps to the specified tag |
+   | C-M-. | pop-tag-mark     | Jumps back                 |
+
+** Bookmarks
+   (global-set-key (kbd "C-b") 'bookmark-set)
+   (global-set-key (kbd "M-b") 'bookmark-jump)
+   (global-set-key (kbd "<f4>") 'bookmark-bmenu-list)
+
+** Folding
+
+   (defvar hs-special-modes-alist
+      (mapcar 'purecopy
+      '((c-mode "{" "}" "/[*/]" nil nil)
+       (c++-mode "{" "}" "/[*/]" nil nil)
+       (bibtex-mode ("@\\S(*\\(\\s(\\)" 1))
+       (java-mode "{" "}" "/[*/]" nil nil)
+       (js-mode "{" "}" "/[*/]" nil)
+       (emacs-lisp- "(" ")" nil))))))
+
+
+   (require 'hideshow)
+
+   (global-set-key (kbd "<f9>") 'hs-toggle-hiding)
+   (global-set-key (kbd "C-<f9>") 'hs-hide-all)
+   (global-set-key (kbd "C-S-<f9>") 'hs-show-all)
+   
+** Shell
+   

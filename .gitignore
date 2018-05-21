@@ -17,6 +17,11 @@
 !.config/i3
 
 !bin
+!emacs__config/**
+
+
+
+
 
 # ...even if they are in subdirectories
 #!*/
